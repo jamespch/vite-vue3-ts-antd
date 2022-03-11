@@ -46,10 +46,15 @@ export function format(val: string | number | Date) {
   let hours = time.getHours()
   let minute = time.getMinutes()
   let second = time.getSeconds()
+  // @ts-ignore
   if (month < 10) { month = '0' + month }
+  // @ts-ignore
   if (date < 10) { date = '0' + date }
+  // @ts-ignore
   if (hours < 10) { hours = '0' + hours }
+  // @ts-ignore
   if (minute < 10) { minute = '0' + minute }
+  // @ts-ignore
   if (second < 10) { second = '0' + second }
   return year + '-' + month + '-' + date + ' ' + hours + ':' + minute + ':' + second
 }
@@ -72,6 +77,7 @@ export function welcome() {
  * 通过日期获取周几
  */
 export function getWeek() {
+  // @ts-ignore
   let str = format()
   let value = str.replace(/-/g, '/')
   var weekDay = ['星期天', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六']

@@ -30,6 +30,7 @@
             const num = 2
             const userName = Storage.get('user-name')
             const instance = getCurrentInstance()
+            // @ts-ignore
             const _this = instance.appContext.config.globalProperties
             const handleFullScreen = () => {
                 if (screenfull.isEnabled) {

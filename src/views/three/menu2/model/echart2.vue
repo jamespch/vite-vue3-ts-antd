@@ -12,6 +12,7 @@
     export default defineComponent({
         setup() {
             const instance = getCurrentInstance()
+            // @ts-ignore
             const _this = instance.appContext.config.globalProperties
             const myRef2 = ref(undefined);
             const initT = (dom: any) => {

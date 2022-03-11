@@ -29,10 +29,11 @@
     import HeaderVue from './header.vue';
     import {
         isExternal
-    } from '@/utils/utils';
+    } from '../utils/utils';
     export default defineComponent({
         setup() {
             const instance = getCurrentInstance()
+            // @ts-ignore
             const _this = instance.appContext.config.globalProperties
             const state = reactive({
                 collapsed: false,
@@ -42,6 +43,7 @@
                 preOpenKeys: ['sub1'],
             });
             const routeList = router.options.routes
+            // @ts-ignore
             const routes = routeList.filter(i => !i.hidden)
             const key = computed(() => {
                 return _this.$route.path
@@ -54,6 +56,7 @@
             );
             const onOpenChange = (openKeys: string[]) => {
                 const latestOpenKey = openKeys.find(key => state.openKeys.indexOf(key) === -1);
+                // @ts-ignore
                 if (state.rootSubmenuKeys.indexOf(latestOpenKey!) === -1) {
                     state.openKeys = openKeys;
                 } else {
@@ -64,6 +67,7 @@
                 state.collapsed = !state.collapsed;
                 state.openKeys = state.collapsed ? [] : state.preOpenKeys;
             };
+            // @ts-ignore
             const menuItemClick = ({ key }) => {
                 if (isExternal(key)) {
                     window.open(key)

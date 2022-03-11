@@ -47,6 +47,7 @@
             const isConfirm = ref(false);
             const isRegister = ref(false);
             const instance = getCurrentInstance()
+            // @ts-ignore
             const _this = instance.appContext.config.globalProperties
             const randomNumber = ref(randomNum())
             const loginState: UnwrapRef < LoginState > = reactive({

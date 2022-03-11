@@ -19,6 +19,7 @@ async function request(url: string, options: ApiConfig) {
       if (options && options.body) {
         // config.data = options.body
         let data = options.body
+        // @ts-ignore
         config.data = qs.stringify(data)
       }
       return config;
