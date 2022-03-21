@@ -45,6 +45,7 @@ vite
 ```bash
 # 构建生产环境
 vite build
+
 ```
 
 ## 其它
@@ -52,6 +53,7 @@ vite build
 ```bash
 # 预览发布环境效果
 vite preview
+```
 
 ## 浏览器兼容
 
@@ -60,7 +62,7 @@ Modern browsers and Internet Explorer 10+.
 | --------- | --------- | --------- | --------- |
 | IE10, IE11, Edge| last 2 versions| last 2 versions| last 2 versions
 
-```
+
 ## 授权
 
 MIT [https://gitee.com/pc751724101/vite-vue3-ts-antd/LICENSE] license.
