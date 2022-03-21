@@ -60,8 +60,9 @@ Modern browsers and Internet Explorer 10+.
 | --------- | --------- | --------- | --------- |
 | IE10, IE11, Edge| last 2 versions| last 2 versions| last 2 versions
 
+```
 ## 授权
 
-[MIT][https://gitee.com/pc751724101/vite-vue3-ts-antd/LICENSE] license.
+MIT [https://gitee.com/pc751724101/vite-vue3-ts-antd/LICENSE] license.
 
 Copyright (c) 2022-present PanCheng
