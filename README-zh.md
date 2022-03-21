@@ -3,7 +3,7 @@
 > 这是一个极简的 vue3 管理后台。它包含了 vite2.x & Typescript & Ant Design Vue2.x & axios & vue-router4.x & vuex4.x ，这些搭建后台必要的东西。
 
 
-[国内访问](https://pc751724101/vite-vue3-ts-antd)
+[国内访问](https://pc751724101.gitee.io/vite-vue3-ts-antd)
 
 与其他项目最大的区别就是放弃了 webpack 和使用 typescript。
 
