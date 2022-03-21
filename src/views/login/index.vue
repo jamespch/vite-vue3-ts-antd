@@ -153,7 +153,7 @@
                                     </a-input>
                                 </a-form-item>
                                 <a-form-item label="密码">
-                                    <a-input-password v-model:value="loginState.password" placeholder="请输入密码">
+                                    <a-input-password v-model:value="loginState.password" autocomplete placeholder="请输入密码">
                                         <template #prefix>
                                             <LockOutlined style="color: rgba(0, 0, 0, 0.25)" /></template>
                                     </a-input-password>
@@ -185,13 +185,13 @@
                                     </a-input>
                                 </a-form-item>
                                 <a-form-item label="密码">
-                                    <a-input-password v-model:value="registerState.password" placeholder="请输入密码">
+                                    <a-input-password v-model:value="registerState.password" autocomplete placeholder="请输入密码">
                                         <template #prefix>
                                             <LockOutlined style="color: rgba(0, 0, 0, 0.25)" /></template>
                                     </a-input-password>
                                 </a-form-item>
                                 <a-form-item label="再次确认密码">
-                                    <a-input-password v-model:value="registerState.secondary" placeholder="请再次输入密码">
+                                    <a-input-password v-model:value="registerState.secondary" autocomplete placeholder="请再次输入密码">
                                         <template #prefix>
                                             <LockOutlined style="color: rgba(0, 0, 0, 0.25)" /></template>
                                     </a-input-password>

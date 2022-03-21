@@ -111,7 +111,7 @@
         <a-switch un-checked-children="启用" checked-children="禁用" v-model:checked="disabled" />
       </template>
       <a-transfer :data-source="mockData" :target-keys="targetKeys" :disabled="disabled" :show-search="true"
-                  :filter-option="(inputValue, item) => item.title.indexOf(inputValue) !== -1" :show-select-all="false"
+                  :filter-option="({inputValue, item}) => item.title.indexOf(inputValue) !== -1" :show-select-all="false"
                   @change="onChange">
         <template #children="{
           direction,
@@ -146,7 +146,7 @@
   </div>
 </template>
 <style scoped>
-  .loading{
+  .loading {
     margin: 200px auto;
     text-align: center;
   }

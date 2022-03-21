@@ -17,7 +17,7 @@
     SearchOutlined,
     PlusOutlined
   } from '@ant-design/icons-vue';
-  import {
+  import moment,{
     Moment
   } from 'moment';
   import {
@@ -68,7 +68,7 @@
       name: `PanCheng ${i}`,
       age: 28,
       address: `广东省深圳市光明区光明街道 ${i+1}号`,
-      createTime: '2022-02-28 11:11:11'
+      createTime: moment('2022-02-28 11:11:11', 'YYYY-MM-DD hh:mm:ss'),
     });
   }
 
@@ -76,10 +76,9 @@
     setup() {
       const state = reactive({
         loading: true,
-        dataSource:[]
+        dataSource:ref(data)
       });
       setTimeout(()=>{
-        state.dataSource = ref(data);
         state.loading = false
       },1000)
       const edit = (record: any) => {
