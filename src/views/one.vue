@@ -35,8 +35,9 @@
   export default defineComponent({
     setup() {
       const formRef = ref();
+      const showInfo = ref(false)
       const formState: UnwrapRef < FormState > = reactive({
-        name: 'vite+vue3',
+        name: 'vite+vue3+Ts',
         region: 'qianhou',
         date1: moment('2022-02-28', 'YYYY-MM-DD'),
         delivery: true,
@@ -91,6 +92,9 @@
           trigger: 'blur'
         }],
       };
+      setTimeout(() => {
+        showInfo.value = true
+      }, 2000)
       const onSubmit = () => {
         formRef.value.validate().then(() => {
           console.log('values', formState, toRaw(formState));
@@ -117,6 +121,7 @@
         rules,
         onSubmit,
         resetForm,
+        showInfo
       };
     },
   });
@@ -124,61 +129,66 @@
 
 <template>
   <div class="appMain">
-    <a-card hoverable>
-      <a-steps :current="1">
-        <a-step title="发起流程" />
-        <a-step title="流程中转" />
-        <a-step title="审核通过" />
-      </a-steps>
-    </a-card>
-    <a-divider />
-    <a-card hoverable title="表单信息" style="text-align: left">
-      <a-form ref="formRef" :model="formState" :rules="rules" :label-col="labelCol" :wrapper-col="wrapperCol">
-        <a-form-item ref="name" label="项目名称" name="name">
-          <a-input v-model:value="formState.name" placeholder="请输入" />
-        </a-form-item>
-        <a-form-item label="项目类型" name="region">
-          <a-select v-model:value="formState.region" placeholder="请选择">
-            <a-select-option value="qianhou">前后端分离式开发</a-select-option>
-            <a-select-option value="houduan">SSR渲染</a-select-option>
-          </a-select>
-        </a-form-item>
-        <a-form-item label="上线日期" required name="date1">
-          <a-date-picker v-model:value="formState.date1" format="YYYY-MM-DD" placeholder="请选择" style="width: 100%" />
-        </a-form-item>
-        <a-form-item label="项目框架" name="resource">
-          <a-radio-group v-model:value="formState.resource">
-            <a-radio value="1">React</a-radio>
-            <a-radio value="2">Vue</a-radio>
-            <a-radio value="3">Angular</a-radio>
-          </a-radio-group>
-        </a-form-item>
-        <a-form-item label="是否开源" name="delivery">
-          <a-switch checked-children="是" un-checked-children="否" v-model:checked="formState.delivery" />
-        </a-form-item>
-        <a-form-item label="项目技术栈" name="type">
-          <a-checkbox-group v-model:value="formState.type">
-            <a-checkbox value="1" name="type">Vite</a-checkbox>
-            <a-checkbox value="2" name="type">Vue3</a-checkbox>
-            <a-checkbox value="3" name="type">Vuex</a-checkbox>
-            <a-checkbox value="4" name="type">Vue-router</a-checkbox>
-            <a-checkbox value="5" name="type">Axios</a-checkbox>
-            <a-checkbox value="6" name="type">TypeScript</a-checkbox>
-            <a-checkbox value="7" name="type">Ant Design Vue</a-checkbox>
-          </a-checkbox-group>
-        </a-form-item>
-        <a-form-item label="项目评分" name="rate">
-          <a-rate v-model:value="formState.rate" allow-half />
-        </a-form-item>
-        <a-form-item label="其他信息" name="desc">
-          <a-textarea v-model:value="formState.desc" :rows="3" showCount :maxlength="255" placeholder="请输入" />
-        </a-form-item>
-        <a-form-item :wrapper-col="{ span: 14, offset: 4 }">
-          <a-button type="primary" @click="onSubmit">保 存</a-button>
-          <a-button style="margin-left: 10px" @click="resetForm">重 置</a-button>
-        </a-form-item>
-      </a-form>
-    </a-card>
+    <div v-if="showInfo">
+      <a-card hoverable>
+        <a-steps :current="1">
+          <a-step title="发起流程" />
+          <a-step title="流程中转" />
+          <a-step title="审核通过" />
+        </a-steps>
+      </a-card>
+      <a-divider />
+      <a-card hoverable title="表单信息" style="text-align: left">
+        <a-form ref="formRef" :model="formState" :rules="rules" :label-col="labelCol" :wrapper-col="wrapperCol">
+          <a-form-item ref="name" label="项目名称" name="name">
+            <a-input v-model:value="formState.name" placeholder="请输入" />
+          </a-form-item>
+          <a-form-item label="项目类型" name="region">
+            <a-select v-model:value="formState.region" placeholder="请选择">
+              <a-select-option value="qianhou">前后端分离式开发</a-select-option>
+              <a-select-option value="houduan">SSR渲染</a-select-option>
+            </a-select>
+          </a-form-item>
+          <a-form-item label="上线日期" required name="date1">
+            <a-date-picker v-model:value="formState.date1" format="YYYY-MM-DD" placeholder="请选择" style="width: 100%" />
+          </a-form-item>
+          <a-form-item label="项目框架" name="resource">
+            <a-radio-group v-model:value="formState.resource">
+              <a-radio value="1">React</a-radio>
+              <a-radio value="2">Vue</a-radio>
+              <a-radio value="3">Angular</a-radio>
+            </a-radio-group>
+          </a-form-item>
+          <a-form-item label="是否开源" name="delivery">
+            <a-switch checked-children="是" un-checked-children="否" v-model:checked="formState.delivery" />
+          </a-form-item>
+          <a-form-item label="项目技术栈" name="type">
+            <a-checkbox-group v-model:value="formState.type">
+              <a-checkbox value="1" name="type">Vite</a-checkbox>
+              <a-checkbox value="2" name="type">Vue3</a-checkbox>
+              <a-checkbox value="3" name="type">Vuex</a-checkbox>
+              <a-checkbox value="4" name="type">Vue-router</a-checkbox>
+              <a-checkbox value="5" name="type">Axios</a-checkbox>
+              <a-checkbox value="6" name="type">TypeScript</a-checkbox>
+              <a-checkbox value="7" name="type">Ant Design Vue</a-checkbox>
+            </a-checkbox-group>
+          </a-form-item>
+          <a-form-item label="项目评分" name="rate">
+            <a-rate v-model:value="formState.rate" allow-half />
+          </a-form-item>
+          <a-form-item label="其他信息" name="desc">
+            <a-textarea v-model:value="formState.desc" :rows="3" showCount :maxlength="255" placeholder="请输入" />
+          </a-form-item>
+          <a-form-item :wrapper-col="{ span: 14, offset: 4 }">
+            <a-button type="primary" @click="onSubmit">保 存</a-button>
+            <a-button style="margin-left: 10px" @click="resetForm">重 置</a-button>
+          </a-form-item>
+        </a-form>
+      </a-card>
+    </div>
+    <div class="loading" v-else>
+      <a-spin size="large" tip="Loading..." />
+    </div>
   </div>
 </template>
 
@@ -186,5 +196,9 @@
   .stepList {
     margin: 0 auto;
     padding: 30px;
+  }
+  .loading{
+    margin: 200px auto;
+    text-align: center;
   }
 </style>
