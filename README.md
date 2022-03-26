@@ -4,7 +4,7 @@ English | [简体中文](./README-zh.md)
 
 > A minimal vue3 admin template with vite2.x & Typescript & Ant Design Vue2.x & axios & vue-router4.x & vuex4.x
 
-**Live demo:** http://jamespch.github.io/vite-vue3-ts-antd
+**Live demo:** https://pc.washcar.work/
 
 > The biggest difference from other projects is to abandon webpack and use typescript
 
@@ -62,6 +62,6 @@ Modern browsers and Internet Explorer 10+.
 
 ## License
 
-[MIT](https://github.com/jamespch/vite-vue3-ts-antd/LICENSE) license.
+MIT [https://github.com/jamespch/vite-vue3-ts-antd/license] (license).
 
 Copyright (c) 2022-present PanCheng
