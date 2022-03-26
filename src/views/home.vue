@@ -32,8 +32,8 @@
         show: false,
         temperature: '',
         userName: Storage.get('user-name'),
-        imgList: ['src/assets/images/001.png', 'src/assets/images/002.png', 'src/assets/images/003.png',
-          'src/assets/images/004.png'
+        imgList: ['https://img.wenhairu.com/images/2022/03/01/RspHK.png', 'https://img.wenhairu.com/images/2022/03/01/Rs5X3.png', 'https://img.wenhairu.com/images/2022/03/01/Rsy8o.png',
+          'https://img.wenhairu.com/images/2022/03/01/RsQ0d.png'
         ],
       });
       const getWeather = () => {
